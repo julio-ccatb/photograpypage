@@ -1,52 +1,58 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { WaveDivider } from "@/components/ui/wave-divider"
+import { motion } from "framer-motion";
+import { WaveDivider } from "@/components/ui/wave-divider";
 
 interface TestimonialProps {
-  quote: string
-  author: string
-  role: string
-  delay: number
+  quote: string;
+  author: string;
+  role: string;
+  delay: number;
 }
 
 function Testimonial({ quote, author, role, delay }: TestimonialProps) {
   return (
     <motion.div
-      className="bg-zinc-800/50 p-6 sm:p-8 border border-zinc-700 rounded-2xl shadow-md"
+      className="rounded-2xl border border-zinc-700 bg-zinc-800/50 p-6 shadow-md sm:p-8"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay }}
       viewport={{ once: true }}
     >
-      <p className="text-base sm:text-xl italic mb-4 sm:mb-6">"{quote}"</p>
+      <p className="mb-4 text-base italic sm:mb-6 sm:text-xl">
+        &quot;{quote}&quot;
+      </p>
       <div className="flex items-center">
-        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-zinc-700 mr-3 sm:mr-4"></div>
+        <div className="mr-3 h-10 w-10 rounded-full bg-zinc-700 sm:mr-4 sm:h-12 sm:w-12"></div>
         <div>
-          <h4 className="font-bold text-sm sm:text-base">{author}</h4>
-          <p className="text-gray-400 text-xs sm:text-sm">{role}</p>
+          <h4 className="text-sm font-bold sm:text-base">{author}</h4>
+          <p className="text-xs text-gray-400 sm:text-sm">{role}</p>
         </div>
       </div>
     </motion.div>
-  )
+  );
 }
 
 export function TestimonialsSection() {
   return (
-    <section className="py-16 md:py-24 bg-zinc-900 relative">
+    <section className="relative bg-zinc-900 py-16 md:py-24">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-10 md:mb-16"
+          className="mb-10 text-center md:mb-16"
         >
-          <span className="text-amber-500 text-sm tracking-widest">LO QUE DICEN NUESTROS CLIENTES</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-2">Testimonios</h2>
+          <span className="text-sm tracking-widest text-amber-500">
+            LO QUE DICEN NUESTROS CLIENTES
+          </span>
+          <h2 className="mt-2 text-3xl font-bold sm:text-4xl md:text-5xl">
+            Testimonios
+          </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
+        <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2">
           <Testimonial
             quote="El equipo capturó momentos que ni siquiera sabía que existían. Trabajo verdaderamente excepcional."
             author="Sara Jiménez"
@@ -65,6 +71,5 @@ export function TestimonialsSection() {
       {/* Wave divider at the bottom */}
       <WaveDivider fill="fill-amber-900" />
     </section>
-  )
+  );
 }
-
