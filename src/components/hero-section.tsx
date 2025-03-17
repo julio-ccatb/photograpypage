@@ -1,38 +1,45 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import Image from "next/image"
-import { motion, useScroll, useTransform } from "framer-motion"
-import { ChevronRight, Instagram, Facebook, Twitter, Camera, ArrowDown } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { SocialIcon } from "@/components/ui/social-icon"
-import Link from "next/link"
+import { useRef } from "react";
+import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  ChevronRight,
+  Instagram,
+  Facebook,
+  Twitter,
+  Camera,
+  ArrowDown,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { SocialIcon } from "@/components/ui/social-icon";
+import Link from "next/link";
 
 export function HeroSection() {
-  const heroRef = useRef<HTMLDivElement>(null)
+  const heroRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
-  })
+  });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1])
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200])
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
   // Función para desplazarse a la sección About
   const scrollToAboutSection = () => {
     // Buscar la sección About por su ID
-    const aboutSection = document.getElementById("about-section")
+    const aboutSection = document.getElementById("about-section");
     if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: "smooth" })
+      aboutSection.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <motion.div
       ref={heroRef}
-      className="relative h-screen flex items-center overflow-hidden"
+      className="relative flex h-screen items-center overflow-hidden"
       style={{ opacity, scale }}
     >
       {/* Imagen de fondo única */}
@@ -48,22 +55,25 @@ export function HeroSection() {
       </div>
 
       {/* Contenido principal */}
-      <div className="container mx-auto px-5 sm:px-6 z-20 relative">
-        <motion.div className="max-w-3xl mx-auto sm:mx-0 text-center sm:text-left" style={{ y }}>
+      <div className="container relative z-20 mx-auto px-4 sm:px-6">
+        <motion.div
+          className="mx-auto max-w-3xl text-center sm:mx-0 sm:text-left"
+          style={{ y }}
+        >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="mb-5 sm:mb-4 flex justify-center sm:justify-start"
+            className="mb-4 flex justify-center sm:mb-4 sm:justify-start"
           >
-            <div className="inline-flex items-center px-3 py-1 sm:px-4 sm:py-1 border-t border-b border-amber-500 text-amber-500 tracking-widest text-xs">
-              <Camera className="mr-1.5 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+            <div className="inline-flex items-center border-b border-t border-amber-500 px-3 py-1 text-xs tracking-widest text-amber-500 sm:px-4 sm:py-1">
+              <Camera className="mr-1.5 h-3 w-3 sm:mr-2 sm:h-4 sm:w-4" />
               <span>CAPTURA LO EXTRAORDINARIO</span>
             </div>
           </motion.div>
 
           <motion.h1
-            className="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 tracking-tight"
+            className="mb-3 text-3xl font-bold tracking-tight sm:mb-6 sm:text-5xl md:text-7xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
@@ -73,7 +83,7 @@ export function HeroSection() {
           </motion.h1>
 
           <motion.p
-            className="text-base sm:text-lg md:text-xl text-gray-300 max-w-xl mx-auto sm:mx-0 mb-6 sm:mb-8 px-1 sm:px-0"
+            className="mx-auto mb-5 max-w-xl px-2 text-base text-gray-300 sm:mx-0 sm:mb-8 sm:px-0 sm:text-lg md:text-xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
@@ -85,21 +95,21 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.1 }}
-            className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-3 sm:gap-4 mb-8"
+            className="mb-6 flex flex-col items-center justify-center gap-3 sm:mb-8 sm:flex-row sm:justify-start sm:gap-4"
           >
             <Button
-              className="bg-amber-500 text-black hover:bg-amber-600/90 px-6 py-4 sm:px-8 sm:py-6 text-base sm:text-lg rounded-full shadow-lg group w-full sm:w-auto"
+              className="group w-full rounded-full bg-amber-500 px-6 py-3 text-sm text-black shadow-lg hover:bg-amber-600/90 sm:w-auto sm:px-8 sm:py-6 sm:text-lg"
               asChild
             >
               <Link href="/reservar">
                 Reserva Tu Sesión
-                <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
 
             <Button
               variant="outline"
-              className="border-white/30 text-white hover:bg-white/10 hover:border-white/60 transition-all duration-300 rounded-full w-full sm:w-auto"
+              className="w-full rounded-full border-white/30 text-white transition-all duration-300 hover:border-white/60 hover:bg-white/10 sm:w-auto"
             >
               Ver Portafolio
             </Button>
@@ -107,49 +117,60 @@ export function HeroSection() {
 
           {/* Social Icons */}
           <motion.div
-            className="flex items-center justify-center sm:justify-start space-x-6"
+            className="flex items-center justify-center space-x-4 sm:justify-start sm:space-x-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.3 }}
           >
-            <span className="text-gray-400 text-sm hidden sm:inline">Síguenos:</span>
-            <div className="flex space-x-5">
-              <SocialIcon icon={<Instagram className="h-4 w-4" />} />
-              <SocialIcon icon={<Facebook className="h-4 w-4" />} />
-              <SocialIcon icon={<Twitter className="h-4 w-4" />} />
+            <span className="hidden text-xs text-gray-400 sm:inline sm:text-sm">
+              Síguenos:
+            </span>
+            <div className="flex space-x-3 sm:space-x-5">
+              <SocialIcon
+                icon={<Instagram className="h-3.5 w-3.5 sm:h-4 sm:w-4" />}
+              />
+              <SocialIcon
+                icon={<Facebook className="h-3.5 w-3.5 sm:h-4 sm:w-4" />}
+              />
+              <SocialIcon
+                icon={<Twitter className="h-3.5 w-3.5 sm:h-4 sm:w-4" />}
+              />
             </div>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Botón para desplazarse hacia la sección About */}
-      <motion.button
-        className="absolute bottom-8 sm:bottom-10 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center justify-center text-white/70 hover:text-white transition-colors duration-300"
-        onClick={scrollToAboutSection}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.5 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        aria-label="Ir a la sección Sobre Nosotros"
-      >
-        <span className="text-xs sm:text-sm mb-1.5 sm:mb-2">Explorar</span>
-        <motion.div
-          animate={{
-            y: [0, 10, 0],
-            opacity: [0.7, 1, 0.7],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-          className="bg-black/30 backdrop-blur-sm rounded-full p-2 sm:p-2.5"
+      {/* Botón para desplazarse hacia la sección About - Mejorado para mayor visibilidad */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 flex justify-center pb-12 sm:pb-16">
+        <motion.button
+          className="flex flex-col items-center justify-center text-white transition-colors duration-300 hover:text-amber-500"
+          onClick={scrollToAboutSection}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.5 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          aria-label="Ir a la sección Sobre Nosotros"
         >
-          <ArrowDown className="h-5 w-5 sm:h-6 sm:w-6" />
-        </motion.div>
-      </motion.button>
+          <span className="mb-2 text-sm font-medium sm:mb-3 sm:text-base">
+            Explorar
+          </span>
+          <motion.div
+            animate={{
+              y: [0, 10, 0],
+              opacity: [0.7, 1, 0.7],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+            }}
+            className="rounded-full border border-white/10 bg-black/50 p-2.5 backdrop-blur-sm sm:p-3.5"
+          >
+            <ArrowDown className="h-5 w-5 sm:h-6 sm:w-6" />
+          </motion.div>
+        </motion.button>
+      </div>
     </motion.div>
-  )
+  );
 }
-
