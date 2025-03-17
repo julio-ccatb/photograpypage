@@ -1,20 +1,20 @@
 export interface PortfolioItem {
-  id: string
-  title: string
-  category: string
-  description: string
-  featured?: boolean
-  image: string
-  aspectRatio?: "portrait" | "landscape" | "square"
-  client?: string
-  location?: string
-  date?: string
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  featured?: boolean;
+  image: string;
+  aspectRatio?: "portrait" | "landscape" | "square";
+  client?: string;
+  location?: string;
+  date?: string;
 }
 
 export interface Category {
-  id: string
-  name: string
-  icon?: string
+  id: string;
+  name: string;
+  icon?: string;
 }
 
 // Categorías con iconos para el nuevo diseño
@@ -26,7 +26,7 @@ export const categories: Category[] = [
   { id: "events", name: "Eventos" },
   { id: "products", name: "Productos" },
   { id: "architecture", name: "Arquitectura" },
-]
+];
 
 export const portfolioItems: PortfolioItem[] = [
   {
@@ -36,8 +36,8 @@ export const portfolioItems: PortfolioItem[] = [
     description:
       "Sesión de moda para la colección de primavera de Elegance Boutique, capturando la fluidez y movimiento de las prendas.",
     featured: true,
-    image: "/placeholder.svg?height=1200&width=900",
-    aspectRatio: "portrait",
+    image: "/IMGS/IMG_1.jpg?height=1200&width=900",
+    aspectRatio: "landscape",
     client: "Elegance Boutique",
     location: "Madrid",
     date: "Marzo 2023",
@@ -46,8 +46,9 @@ export const portfolioItems: PortfolioItem[] = [
     id: "p2",
     title: "Perspectiva Urbana",
     category: "portraits",
-    description: "Retratos urbanos que capturan la esencia de la vida en la ciudad y la personalidad única del sujeto.",
-    image: "/placeholder.svg?height=800&width=800",
+    description:
+      "Retratos urbanos que capturan la esencia de la vida en la ciudad y la personalidad única del sujeto.",
+    image: "/IMGS/IMG_2.jpg?height=800&width=800",
     aspectRatio: "square",
     client: "Revista Urban",
     location: "Barcelona",
@@ -57,8 +58,9 @@ export const portfolioItems: PortfolioItem[] = [
     id: "p3",
     title: "Exhibición de Productos",
     category: "products",
-    description: "Fotografía de productos para catálogo online, destacando los detalles y texturas de cada artículo.",
-    image: "/placeholder.svg?height=800&width=1200",
+    description:
+      "Fotografía de productos para catálogo online, destacando los detalles y texturas de cada artículo.",
+    image: "/IMGS/IMG_3.jpg?height=800&width=1200",
     aspectRatio: "landscape",
     client: "Artesanía Moderna",
     location: "Valencia",
@@ -68,8 +70,9 @@ export const portfolioItems: PortfolioItem[] = [
     id: "p4",
     title: "Identidad Corporativa",
     category: "commercial",
-    description: "Sesión corporativa para actualizar la imagen de marca y materiales promocionales de la empresa.",
-    image: "/placeholder.svg?height=1200&width=900",
+    description:
+      "Sesión corporativa para actualizar la imagen de marca y materiales promocionales de la empresa.",
+    image: "/IMGS/IMG_4.jpg?height=1200&width=900",
     aspectRatio: "portrait",
     client: "TechSolutions Inc.",
     location: "Madrid",
@@ -82,8 +85,8 @@ export const portfolioItems: PortfolioItem[] = [
     description:
       "Documentación fotográfica de una boda íntima, capturando los momentos más emotivos y significativos del día.",
     featured: true,
-    image: "/placeholder.svg?height=800&width=1200",
-    aspectRatio: "landscape",
+    image: "/IMGS/IMG_5.jpg?height=800&width=1200",
+    aspectRatio: "portrait",
     client: "Elena y Carlos",
     location: "Sevilla",
     date: "Julio 2023",
@@ -94,8 +97,8 @@ export const portfolioItems: PortfolioItem[] = [
     category: "products",
     description:
       "Fotografía gastronómica para el nuevo menú de temporada, resaltando los colores y texturas de cada plato.",
-    image: "/placeholder.svg?height=800&width=800",
-    aspectRatio: "square",
+    image: "/IMGS/IMG_6.jpg?height=800&width=800",
+    aspectRatio: "portrait",
     client: "Restaurante Sabores",
     location: "Barcelona",
     date: "Agosto 2023",
@@ -107,7 +110,7 @@ export const portfolioItems: PortfolioItem[] = [
     description:
       "Serie fotográfica que explora las líneas y formas de edificios emblemáticos de la arquitectura contemporánea.",
     featured: true,
-    image: "/placeholder.svg?height=800&width=1200",
+    image: "/IMGS/IMG_7.jpg?height=800&width=1200",
     aspectRatio: "landscape",
     client: "Revista Arquitectura Hoy",
     location: "Bilbao",
@@ -117,8 +120,9 @@ export const portfolioItems: PortfolioItem[] = [
     id: "p8",
     title: "Retrato Corporativo",
     category: "portraits",
-    description: "Retratos profesionales para el equipo directivo, transmitiendo confianza y profesionalidad.",
-    image: "/placeholder.svg?height=1200&width=900",
+    description:
+      "Retratos profesionales para el equipo directivo, transmitiendo confianza y profesionalidad.",
+    image: "/IMGS/IMG_8.jpg?height=1200&width=900",
     aspectRatio: "portrait",
     client: "Finanzas Global",
     location: "Madrid",
@@ -128,8 +132,9 @@ export const portfolioItems: PortfolioItem[] = [
     id: "p9",
     title: "Campaña Publicitaria",
     category: "commercial",
-    description: "Fotografía para campaña publicitaria de lanzamiento de producto, con enfoque en el impacto visual.",
-    image: "/placeholder.svg?height=800&width=1200",
+    description:
+      "Fotografía para campaña publicitaria de lanzamiento de producto, con enfoque en el impacto visual.",
+    image: "/IMGS/IMG_9.jpg?height=800&width=1200",
     aspectRatio: "landscape",
     client: "NovaTech",
     location: "Valencia",
@@ -141,7 +146,7 @@ export const portfolioItems: PortfolioItem[] = [
     category: "fashion",
     description:
       "Cobertura del desfile de moda de la temporada otoño-invierno, capturando los momentos clave del evento.",
-    image: "/placeholder.svg?height=1200&width=900",
+    image: "/IMGS/IMG_10.jpg?height=1200&width=900",
     aspectRatio: "portrait",
     client: "Fashion Week Madrid",
     location: "Madrid",
@@ -187,7 +192,8 @@ export const portfolioItems: PortfolioItem[] = [
     id: "p14",
     title: "Retrato Artístico",
     category: "portraits",
-    description: "Serie de retratos conceptuales explorando diferentes emociones y estados de ánimo.",
+    description:
+      "Serie de retratos conceptuales explorando diferentes emociones y estados de ánimo.",
     featured: true,
     image: "/placeholder.svg?height=1200&width=900",
     aspectRatio: "portrait",
@@ -207,5 +213,4 @@ export const portfolioItems: PortfolioItem[] = [
     location: "Valencia",
     date: "Mayo 2024",
   },
-]
-
+];

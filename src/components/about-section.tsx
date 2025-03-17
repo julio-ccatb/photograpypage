@@ -124,7 +124,7 @@ export function AboutSection() {
                 transition={{ duration: 0.5 }}
               >
                 <Image
-                  src="/placeholder.svg?height=800&width=600"
+                  src="/IMGS/EST_01.jpg?height=800&width=600"
                   alt="Nuestro equipo"
                   fill
                   className="object-cover"
@@ -140,7 +140,7 @@ export function AboutSection() {
                 transition={{ duration: 0.5 }}
               >
                 <Image
-                  src="/placeholder.svg?height=600&width=400"
+                  src="/IMGS/EST_02.jpg?height=600&width=400"
                   alt="Nuestro estudio"
                   fill
                   className="object-cover"

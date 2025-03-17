@@ -45,9 +45,10 @@ export function HeroSection() {
       {/* Imagen de fondo única */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/placeholder.svg?height=1080&width=1920"
+          src="/IMGS/Hero_01.jpg?height=1080&width=1920"
           alt="Fotografía Profesional"
           fill
+          quality={100}
           className="object-cover"
           priority
         />
