@@ -44,10 +44,9 @@ export function PortfolioGallery({ items, isLoading }: PortfolioGalleryProps) {
 
     items.forEach((item, index) => {
       const columnIndex = index % columns;
-      if (!columnsArray[columnIndex]) {
-        columnsArray[columnIndex] = [];
+      if (columnsArray[columnIndex]) {
+        columnsArray[columnIndex].push(item);
       }
-      columnsArray[columnIndex].push(item);
     });
 
     return columnsArray;
@@ -62,11 +61,14 @@ export function PortfolioGallery({ items, isLoading }: PortfolioGalleryProps) {
           <Loader2 className="h-12 w-12 animate-spin text-amber-500" />
         </div>
       ) : (
-        <div ref={galleryRef} className="container mx-auto px-4">
-          <div className="flex gap-4">
+        <div
+          ref={galleryRef}
+          className="container mx-auto overflow-hidden px-4"
+        >
+          <div className="flex flex-wrap gap-4 md:flex-nowrap">
             <AnimatePresence>
               {columnsArray.map((column, columnIndex) => (
-                <div key={columnIndex} className="flex-1 space-y-4">
+                <div key={columnIndex} className="w-full space-y-4 md:flex-1">
                   {column.map((item) => (
                     <motion.div
                       key={item.id}
