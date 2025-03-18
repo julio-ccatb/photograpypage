@@ -114,8 +114,9 @@ export function HeroSection() {
             <Button
               variant="outline"
               className="w-full rounded-full border-white/30 text-white transition-all duration-300 hover:border-white/60 hover:bg-white/10 sm:w-auto"
+              asChild
             >
-              Ver Portafolio
+              <Link href="/portafolio">Ver Portafolio</Link>
             </Button>
           </motion.div>
 
