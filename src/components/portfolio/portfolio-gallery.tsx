@@ -84,6 +84,7 @@ export function PortfolioGallery({ items, isLoading }: PortfolioGalleryProps) {
                           <Image
                             src={item.image || "/placeholder.svg"}
                             alt={item.title}
+                            quality={60}
                             fill
                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             className="object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-110"
