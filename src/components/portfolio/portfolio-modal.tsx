@@ -18,7 +18,7 @@ interface PortfolioModalProps {
 }
 
 export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
-  const [showInfo, setShowInfo] = useState(false);
+  const [showInfo, setShowInfo] = useState(true);
   const [currentItem, setCurrentItem] = useState<PortfolioItem | null>(null);
 
   useEffect(() => {
@@ -135,6 +135,7 @@ export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
                   <Image
                     src={currentItem.image || "/placeholder.svg"}
                     alt={currentItem.title}
+                    quality={100}
                     width={1200}
                     height={800}
                     className="max-h-[85vh] object-contain"
