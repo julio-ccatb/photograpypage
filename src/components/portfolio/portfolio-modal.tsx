@@ -1,14 +1,26 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  type PanInfo,
+  useAnimation,
+} from "framer-motion";
 import Image from "next/image";
 import {
   type PortfolioItem,
   categories,
   portfolioItems,
 } from "@/data/mock-portfolio";
-import { X, Calendar, MapPin, User } from "lucide-react";
+import {
+  X,
+  Calendar,
+  MapPin,
+  User,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import { PortfolioNavigation } from "./portfolio-navigation";
 
 interface PortfolioModalProps {
@@ -20,6 +32,8 @@ interface PortfolioModalProps {
 export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
   const [showInfo, setShowInfo] = useState(false);
   const [currentItem, setCurrentItem] = useState<PortfolioItem | null>(null);
+  const controls = useAnimation();
+  const [dragStartX, setDragStartX] = useState(0);
 
   useEffect(() => {
     setCurrentItem(item);
@@ -52,21 +66,66 @@ export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
   const hasPrevious = currentIndex > 0;
   const hasNext = currentIndex < portfolioItems.length - 1;
 
-  const handlePrevious = () => {
+  const handlePrevious = async () => {
     if (hasPrevious) {
-      const previousItem = portfolioItems[currentIndex - 1];
-      if (previousItem) {
-        setCurrentItem(previousItem);
-      }
+      void controls
+        .start({
+          x: "100%",
+          opacity: 0,
+          transition: { duration: 0.2 },
+        })
+        .then(() => {
+          setCurrentItem(portfolioItems[currentIndex - 1] ?? null);
+          controls.set({ x: "-100%", opacity: 0 });
+          void controls.start({
+            x: 0,
+            opacity: 1,
+            transition: { duration: 0.2 },
+          });
+        });
     }
   };
 
   const handleNext = () => {
     if (hasNext) {
-      const nextItem = portfolioItems[currentIndex + 1];
-      if (nextItem) {
-        setCurrentItem(nextItem);
+      void controls
+        .start({
+          x: "-100%",
+          opacity: 0,
+          transition: { duration: 0.2 },
+        })
+        .then(() => {
+          setCurrentItem(portfolioItems[currentIndex + 1]!);
+          controls.set({ x: "100%", opacity: 0 });
+          void controls.start({
+            x: 0,
+            opacity: 1,
+            transition: { duration: 0.2 },
+          });
+        });
+    }
+  };
+
+  const handleDragStart = (_: unknown, info: PanInfo) => {
+    setDragStartX(info.point.x);
+  };
+
+  const handleDragEnd = (_: unknown, info: PanInfo) => {
+    const dragEndX = info.point.x;
+    const dragDistance = dragEndX - dragStartX;
+
+    // If the drag distance is significant enough (more than 50px), navigate
+    if (Math.abs(dragDistance) > 50) {
+      if (dragDistance > 0 && hasPrevious) {
+        // Swiped right, go to previous
+        void handlePrevious();
+      } else if (dragDistance < 0 && hasNext) {
+        // Swiped left, go to next
+        handleNext();
       }
+    } else {
+      // If the drag wasn't significant, reset the position
+      void controls.start({ x: 0, opacity: 1 });
     }
   };
 
@@ -113,37 +172,70 @@ export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
               {showInfo ? "Ocultar Info" : "Mostrar Info"}
             </button>
 
-            {/* Navigation */}
-            <PortfolioNavigation
-              onPrevious={handlePrevious}
-              onNext={handleNext}
-              hasPrevious={hasPrevious}
-              hasNext={hasNext}
-            />
+            {/* Navigation for larger screens */}
+            <div className="hidden md:block">
+              <PortfolioNavigation
+                onPrevious={handlePrevious}
+                onNext={handleNext}
+                hasPrevious={hasPrevious}
+                hasNext={hasNext}
+              />
+            </div>
 
-            {/* Image */}
+            {/* Swipe instructions for mobile - only shown briefly */}
+            <motion.div
+              className="absolute bottom-16 left-0 right-0 text-center text-sm text-white/70 md:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              exit={{ opacity: 0 }}
+            >
+              <div className="flex items-center justify-center space-x-2">
+                <ChevronLeft className="h-4 w-4" />
+                <span>Desliza para navegar</span>
+                <ChevronRight className="h-4 w-4" />
+              </div>
+            </motion.div>
+
+            {/* Image with swipe functionality */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentItem.id}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={handleNext}
-                transition={{ duration: 0.3 }}
-                className="flex h-full w-full items-center justify-center p-4 md:p-12"
+                animate={controls}
+                initial={{ opacity: 1, x: 0 }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragStart={handleDragStart}
+                onDragEnd={handleDragEnd}
+                className="flex h-full w-full cursor-grab items-center justify-center p-4 active:cursor-grabbing md:p-12"
               >
                 <div className="relative max-h-full max-w-full">
                   <Image
                     src={currentItem.image || "/placeholder.svg"}
                     alt={currentItem.title}
-                    quality={100}
                     width={1200}
                     height={800}
-                    className="max-h-[85vh] object-contain"
+                    className="pointer-events-none max-h-[85vh] select-none object-contain"
+                    priority
                   />
                 </div>
               </motion.div>
             </AnimatePresence>
+
+            {/* Mobile navigation indicators */}
+            <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-2 md:hidden">
+              {portfolioItems.map((_, index) => (
+                <div
+                  key={index}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    index === currentIndex
+                      ? "w-6 bg-amber-500"
+                      : "w-1.5 bg-white/30"
+                  }`}
+                />
+              ))}
+            </div>
 
             {/* Info panel */}
             <AnimatePresence>
