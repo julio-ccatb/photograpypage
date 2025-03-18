@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 interface PortfolioItemProps {
   index: number;
@@ -20,6 +21,8 @@ function PortfolioItem({
   aspectRatio = "aspect-square",
   image = "/placeholder.svg",
 }: PortfolioItemProps) {
+  const router = useRouter();
+
   return (
     <motion.div
       className={`group relative overflow-hidden ${aspectRatio} h-full w-full rounded-2xl shadow-md`}
@@ -58,6 +61,7 @@ function PortfolioItem({
               variant="outline"
               size="sm"
               className="rounded-full border-white/30 text-white transition-all duration-300 hover:border-white/60 hover:bg-white/20"
+              onClick={() => router.push(`/proyectos/${index}`)}
             >
               Ver Proyecto
             </Button>
@@ -72,6 +76,8 @@ function PortfolioItem({
 }
 
 export function PortfolioSection() {
+  const router = useRouter();
+
   const categories = [
     "Todos",
     "Retratos",
@@ -200,6 +206,7 @@ export function PortfolioSection() {
             <Button
               variant="outline"
               className="rounded-full border-amber-500 px-6 py-4 text-amber-500 transition-all duration-300 hover:bg-amber-500/20 hover:text-amber-400 sm:px-8 sm:py-6"
+              onClick={() => router.push("/portafolio")}
             >
               Explorar Galería Completa
               <ChevronRight className="ml-2 h-4 w-4" />
