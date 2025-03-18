@@ -18,7 +18,7 @@ interface PortfolioModalProps {
 }
 
 export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
-  const [showInfo, setShowInfo] = useState(true);
+  const [showInfo, setShowInfo] = useState(false);
   const [currentItem, setCurrentItem] = useState<PortfolioItem | null>(null);
 
   useEffect(() => {
