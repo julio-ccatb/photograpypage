@@ -1,12 +1,17 @@
-import { Camera, Users, ImageIcon, Video } from "lucide-react"
-import type { ServiceType, PackageType, WorkSampleType } from "@/types/services"
+import { Camera, Users, ImageIcon, Video } from "lucide-react";
+import type {
+  ServiceType,
+  PackageType,
+  WorkSampleType,
+} from "@/types/services";
 
 // Datos de servicios
 export const services: ServiceType[] = [
   {
     id: "portraits",
     title: "Fotografía de Retratos",
-    shortDesc: "Captura tu esencia con nuestras sesiones de retratos profesionales.",
+    shortDesc:
+      "Captura tu esencia con nuestras sesiones de retratos profesionales.",
     description:
       "Nuestras sesiones de retratos están diseñadas para resaltar tu personalidad única. Trabajamos con iluminación natural y de estudio para crear imágenes que capturen tu verdadera esencia.",
     icon: <Users className="h-6 w-6" />,
@@ -23,7 +28,8 @@ export const services: ServiceType[] = [
   {
     id: "commercial",
     title: "Fotografía Comercial",
-    shortDesc: "Eleva tu marca con fotografía de productos y comercial impresionante.",
+    shortDesc:
+      "Eleva tu marca con fotografía de productos y comercial impresionante.",
     description:
       "Transformamos tus productos y servicios en imágenes que venden. Nuestra fotografía comercial está diseñada para destacar en un mercado competitivo y conectar con tu audiencia.",
     icon: <ImageIcon className="h-6 w-6" />,
@@ -40,7 +46,8 @@ export const services: ServiceType[] = [
   {
     id: "events",
     title: "Cobertura de Eventos",
-    shortDesc: "Documenta tus momentos especiales con nuestros servicios completos.",
+    shortDesc:
+      "Documenta tus momentos especiales con nuestros servicios completos.",
     description:
       "Capturamos cada momento significativo de tu evento, desde grandes celebraciones hasta reuniones íntimas. Nuestro enfoque discreto asegura imágenes naturales y auténticas.",
     icon: <Camera className="h-6 w-6" />,
@@ -57,7 +64,8 @@ export const services: ServiceType[] = [
   {
     id: "video",
     title: "Producción de Video",
-    shortDesc: "Crea contenido audiovisual de alta calidad para tu marca o evento.",
+    shortDesc:
+      "Crea contenido audiovisual de alta calidad para tu marca o evento.",
     description:
       "Nuestros servicios de video combinan técnica cinematográfica con narrativa visual para crear contenido que cautiva a tu audiencia, ya sea para redes sociales o producciones más ambiciosas.",
     icon: <Video className="h-6 w-6" />,
@@ -71,14 +79,19 @@ export const services: ServiceType[] = [
     price: "Desde 400€",
     popular: false,
   },
-]
+];
 
 // Paquetes de precios
 export const packages: PackageType[] = [
   {
     title: "Básico",
     price: "150€",
-    features: ["1 hora de sesión", "10 fotos editadas", "Entrega digital", "1 cambio de vestuario"],
+    features: [
+      "1 hora de sesión",
+      "10 fotos editadas",
+      "Entrega digital",
+      "1 cambio de vestuario",
+    ],
   },
   {
     title: "Premium",
@@ -103,13 +116,28 @@ export const packages: PackageType[] = [
       "Licencia comercial completa",
     ],
   },
-]
+];
 
 // Ejemplos de trabajos
 export const workSamples: WorkSampleType[] = [
-  { image: "/placeholder.svg?height=500&width=500", title: "Retrato Corporativo", category: "Retratos" },
-  { image: "/placeholder.svg?height=500&width=500", title: "Campaña de Producto", category: "Comercial" },
-  { image: "/placeholder.svg?height=500&width=500", title: "Boda en la Playa", category: "Eventos" },
-  { image: "/placeholder.svg?height=500&width=500", title: "Video Promocional", category: "Video" },
-]
-
+  {
+    image: "/IMGS/SRV_01.jpg?height=500&width=500",
+    title: "Retrato Corporativo",
+    category: "Retratos",
+  },
+  {
+    image: "/IMGS/SRV_02.jpg?height=500&width=500",
+    title: "Campaña de Producto",
+    category: "Comercial",
+  },
+  {
+    image: "/IMGS/SRV_03.jpg?height=500&width=500",
+    title: "Boda en la Playa",
+    category: "Eventos",
+  },
+  {
+    image: "/IMGS/SRV_04.jpg?height=500&width=500",
+    title: "Video Promocional",
+    category: "Video",
+  },
+];

@@ -128,6 +128,7 @@ export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
+                onClick={handleNext}
                 transition={{ duration: 0.3 }}
                 className="flex h-full w-full items-center justify-center p-4 md:p-12"
               >
