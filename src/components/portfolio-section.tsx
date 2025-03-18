@@ -32,9 +32,11 @@ function PortfolioItem({
       viewport={{ once: true }}
     >
       <Image
-        src={`${image}?height=800&width=1200`}
+        src={`${image}`}
         alt={title}
         fill
+        quality={70}
+        loading="lazy"
         className="object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
       />
 

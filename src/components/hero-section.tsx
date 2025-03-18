@@ -24,7 +24,6 @@ export function HeroSection() {
   });
 
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
   // Función para desplazarse a la sección About
@@ -40,17 +39,18 @@ export function HeroSection() {
     <motion.div
       ref={heroRef}
       className="relative flex h-screen items-center overflow-hidden"
-      style={{ opacity, scale }}
+      style={{ opacity }}
     >
-      {/* Imagen de fondo única */}
+      {/* Imagen de fondo única - optimizada */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/IMGS/Hero_01.jpg?height=1080&width=1920"
+          src="/IMGS/Hero_01.jpg"
           alt="Fotografía Profesional"
           fill
-          quality={100}
           className="object-cover"
           priority
+          sizes="100vw"
+          loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/90" />
       </div>
@@ -60,11 +60,14 @@ export function HeroSection() {
         <motion.div
           className="mx-auto max-w-3xl text-center sm:mx-0 sm:text-left"
           style={{ y }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className="mb-4 flex justify-center sm:mb-4 sm:justify-start"
           >
             <div className="inline-flex items-center border-b border-t border-amber-500 px-3 py-1 text-xs tracking-widest text-amber-500 sm:px-4 sm:py-1">
@@ -77,7 +80,7 @@ export function HeroSection() {
             className="mb-3 text-3xl font-bold tracking-tight sm:mb-6 sm:text-5xl md:text-7xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
             <span className="block">Dvine Studios</span>
             <span className="text-amber-500">Fotografía</span>
@@ -87,7 +90,7 @@ export function HeroSection() {
             className="mx-auto mb-5 max-w-xl px-2 text-base text-gray-300 sm:mx-0 sm:mb-8 sm:px-0 sm:text-lg md:text-xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
           >
             Elevando tu visión con calidad excepcional y pasión que cautiva.
           </motion.p>
@@ -95,7 +98,7 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
             className="mb-6 flex flex-col items-center justify-center gap-3 sm:mb-8 sm:flex-row sm:justify-start sm:gap-4"
           >
             <Button
@@ -121,7 +124,7 @@ export function HeroSection() {
             className="flex items-center justify-center space-x-4 sm:justify-start sm:space-x-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.3 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
           >
             <span className="hidden text-xs text-gray-400 sm:inline sm:text-sm">
               Síguenos:
@@ -141,14 +144,14 @@ export function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Botón para desplazarse hacia la sección About - Mejorado para mayor visibilidad */}
+      {/* Botón para desplazarse hacia la sección About */}
       <div className="absolute bottom-0 left-0 right-0 z-20 flex justify-center pb-12 sm:pb-16">
         <motion.button
           className="flex flex-col items-center justify-center text-white transition-colors duration-300 hover:text-amber-500"
           onClick={scrollToAboutSection}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.5 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           aria-label="Ir a la sección Sobre Nosotros"
