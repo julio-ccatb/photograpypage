@@ -41,12 +41,25 @@ export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
 
   // Cerrar el modal con la tecla Escape
   useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+      } else if (e.key === "ArrowLeft") {
+        // Navigate to previous image with left arrow key
+        if (currentIndex > 0) {
+          handlePrevious();
+        }
+      } else if (e.key === "ArrowRight") {
+        // Navigate to next image with right arrow key
+        if (currentIndex < portfolioItems.length - 1) {
+          handleNext();
+        }
+      }
     };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, [onClose]);
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [onClose, currentItem]); // Add currentItem as dependency to get updated currentIndex
 
   // Prevenir el scroll del body cuando el modal está abierto
   useEffect(() => {
@@ -66,7 +79,7 @@ export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
   const hasPrevious = currentIndex > 0;
   const hasNext = currentIndex < portfolioItems.length - 1;
 
-  const handlePrevious = async () => {
+  const handlePrevious = () => {
     if (hasPrevious) {
       void controls
         .start({
@@ -75,8 +88,8 @@ export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
           transition: { duration: 0.2 },
         })
         .then(() => {
-          setCurrentItem(portfolioItems[currentIndex - 1] ?? null);
-          controls.set({ x: "-100%", opacity: 0 });
+          setCurrentItem(portfolioItems[currentIndex - 1]!);
+          void controls.set({ x: "-100%", opacity: 0 });
           void controls.start({
             x: 0,
             opacity: 1,
@@ -118,7 +131,7 @@ export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
     if (Math.abs(dragDistance) > 50) {
       if (dragDistance > 0 && hasPrevious) {
         // Swiped right, go to previous
-        void handlePrevious();
+        handlePrevious();
       } else if (dragDistance < 0 && hasNext) {
         // Swiped left, go to next
         handleNext();
@@ -172,15 +185,13 @@ export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
               {showInfo ? "Ocultar Info" : "Mostrar Info"}
             </button>
 
-            {/* Navigation for larger screens */}
-            <div className="hidden md:block">
-              <PortfolioNavigation
-                onPrevious={handlePrevious}
-                onNext={handleNext}
-                hasPrevious={hasPrevious}
-                hasNext={hasNext}
-              />
-            </div>
+            {/* Navigation visible on all screen sizes */}
+            <PortfolioNavigation
+              onPrevious={handlePrevious}
+              onNext={handleNext}
+              hasPrevious={hasPrevious}
+              hasNext={hasNext}
+            />
 
             {/* Swipe instructions for mobile - only shown briefly */}
             <motion.div
@@ -189,12 +200,17 @@ export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.5 }}
               exit={{ opacity: 0 }}
+              key={currentItem.id} // Reset animation when item changes
             >
-              <div className="flex items-center justify-center space-x-2">
+              <motion.div
+                className="flex items-center justify-center space-x-2"
+                animate={{ opacity: [1, 1, 0] }}
+                transition={{ duration: 3, times: [0, 0.7, 1] }}
+              >
                 <ChevronLeft className="h-4 w-4" />
-                <span>Desliza para navegar</span>
+                <span>Desliza o usa las flechas</span>
                 <ChevronRight className="h-4 w-4" />
-              </div>
+              </motion.div>
             </motion.div>
 
             {/* Image with swipe functionality */}
@@ -235,6 +251,11 @@ export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
                   }`}
                 />
               ))}
+            </div>
+
+            {/* Keyboard navigation instructions */}
+            <div className="absolute bottom-8 left-0 right-0 hidden text-center text-xs text-white/50 md:block">
+              Use las flechas ← → del teclado para navegar
             </div>
 
             {/* Info panel */}
