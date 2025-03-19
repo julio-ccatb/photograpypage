@@ -5,12 +5,13 @@ import { Inter } from "next/font/google";
 
 import { TRPCReactProvider } from "@/trpc/react";
 import { FloatingWhatsApp } from "@/components/contact/floating-whatsapp";
+import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Dvine Studios - Fotografía Profesional",
   description:
     "Servicios de fotografía profesional que capturan lo extraordinario en cada toma.",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [{ rel: "icon", url: "/logo.png" }],
 };
 
 const inter = Inter({ subsets: ["latin"] });
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body>
         <TRPCReactProvider>
           {children}
+          <Footer />
           <FloatingWhatsApp />
         </TRPCReactProvider>
       </body>

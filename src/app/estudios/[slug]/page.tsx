@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import { StudioDetailHeader } from "@/components/studios/studio-detail-header";
 import { StudioGallery } from "@/components/studios/studio-gallery";
 import { StudioFeaturesDetail } from "@/components/studios/studio-features-detail";
@@ -44,7 +43,6 @@ export default function StudioDetailPage() {
             Lo sentimos, el estudio que buscas no existe.
           </p>
         </div>
-        <Footer />
       </div>
     );
   }
@@ -58,7 +56,6 @@ export default function StudioDetailPage() {
       <StudioEquipment studio={studio} />
       <StudioPricing studio={studio} />
       <CTASection />
-      <Footer />
     </div>
   );
 }

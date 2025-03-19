@@ -1,12 +1,12 @@
 "use client";
 
-import { Header } from "@/components/header";
+import { CTASection } from "@/components/cta-section";
 import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+import { PricingPackages } from "@/components/services/pricing-packages";
 import { ServicesHero } from "@/components/services/services-hero";
 import { ServicesTabs } from "@/components/services/services-tabs";
-import { PricingPackages } from "@/components/services/pricing-packages";
 import { WorkSamples } from "@/components/services/work-samples";
-import { CTASection } from "@/components/cta-section";
 
 export default function ServiciosPage() {
   return (
@@ -17,7 +17,6 @@ export default function ServiciosPage() {
       <PricingPackages />
       <WorkSamples />
       <CTASection />
-      <Footer />
     </div>
   );
 }

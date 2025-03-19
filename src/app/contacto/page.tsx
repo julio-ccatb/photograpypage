@@ -1,7 +1,6 @@
 "use client";
 
 import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import { ContactHeader } from "@/components/contact/contact-header";
 import { ContactMethods } from "@/components/contact/contact-methods";
 import { ContactTestimonials } from "@/components/contact/contact-testimonials";
@@ -15,7 +14,6 @@ export default function ContactoPage() {
       <ContactMethods />
       <ContactTestimonials />
       <CTASection />
-      <Footer />
     </div>
   );
 }

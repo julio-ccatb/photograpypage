@@ -1,17 +1,17 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { NavLink } from "@/components/ui/nav-link"
-import { Menu, X } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { NavLink } from "@/components/ui/nav-link";
+import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-md">
+    <header className="fixed left-0 right-0 top-0 z-50 bg-black/50 backdrop-blur-md">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <motion.div
@@ -22,7 +22,7 @@ export function Header() {
           >
             <Link href="/" className="flex items-center">
               <span className="text-2xl font-bold text-amber-500">DVINE</span>
-              <span className="text-2xl font-light ml-1">STUDIOS</span>
+              <span className="ml-1 text-2xl font-light">STUDIOS</span>
             </Link>
           </motion.div>
 
@@ -31,7 +31,7 @@ export function Header() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="hidden md:flex items-center space-x-8"
+            className="hidden items-center space-x-8 md:flex"
           >
             <NavLink href="/estudios">Estudios</NavLink>
             <NavLink href="/servicios">Servicios</NavLink>
@@ -44,7 +44,7 @@ export function Header() {
           <div className="flex md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white p-2"
+              className="p-2 text-white"
               aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -59,7 +59,7 @@ export function Header() {
           >
             <Button
               variant="outline"
-              className="border-amber-500 text-amber-500 hover:bg-amber-500/20 hover:text-amber-400 transition-all duration-300 rounded-full"
+              className="rounded-full border-amber-500 text-amber-500 transition-all duration-300 hover:bg-amber-500/20 hover:text-amber-400"
               asChild
             >
               <Link href="/reservar">Reservar Ahora</Link>
@@ -75,40 +75,40 @@ export function Header() {
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden bg-zinc-900/95 backdrop-blur-md"
+          className="bg-zinc-900/95 backdrop-blur-md md:hidden"
         >
-          <div className="container mx-auto px-4 py-6 flex flex-col space-y-4">
+          <div className="container mx-auto flex flex-col space-y-4 px-4 py-6">
             <Link
               href="/estudios"
-              className="text-gray-200 py-3 px-4 hover:bg-zinc-800/50 rounded-lg"
+              className="rounded-lg px-4 py-3 text-gray-200 hover:bg-zinc-800/50"
               onClick={() => setIsMenuOpen(false)}
             >
               Estudios
             </Link>
             <Link
               href="/servicios"
-              className="text-gray-200 py-3 px-4 hover:bg-zinc-800/50 rounded-lg"
+              className="rounded-lg px-4 py-3 text-gray-200 hover:bg-zinc-800/50"
               onClick={() => setIsMenuOpen(false)}
             >
               Servicios
             </Link>
             <Link
               href="/portafolio"
-              className="text-gray-200 py-3 px-4 hover:bg-zinc-800/50 rounded-lg"
+              className="rounded-lg px-4 py-3 text-gray-200 hover:bg-zinc-800/50"
               onClick={() => setIsMenuOpen(false)}
             >
               Portafolio
             </Link>
             <Link
               href="/nosotros"
-              className="text-gray-200 py-3 px-4 hover:bg-zinc-800/50 rounded-lg"
+              className="rounded-lg px-4 py-3 text-gray-200 hover:bg-zinc-800/50"
               onClick={() => setIsMenuOpen(false)}
             >
               Nosotros
             </Link>
             <Link
               href="/contacto"
-              className="text-gray-200 py-3 px-4 hover:bg-zinc-800/50 rounded-lg"
+              className="rounded-lg px-4 py-3 text-gray-200 hover:bg-zinc-800/50"
               onClick={() => setIsMenuOpen(false)}
             >
               Contacto
@@ -116,7 +116,7 @@ export function Header() {
             <div className="pt-2">
               <Button
                 variant="outline"
-                className="w-full border-amber-500 text-amber-500 hover:bg-amber-500/20 hover:text-amber-400 transition-all duration-300 rounded-full"
+                className="w-full rounded-full border-amber-500 text-amber-500 transition-all duration-300 hover:bg-amber-500/20 hover:text-amber-400"
                 asChild
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -127,6 +127,5 @@ export function Header() {
         </motion.div>
       )}
     </header>
-  )
+  );
 }
-

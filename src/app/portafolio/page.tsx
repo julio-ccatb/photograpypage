@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import { PortfolioGallery } from "@/components/portfolio/portfolio-gallery";
 import { PortfolioFilters } from "@/components/portfolio/portfolio-filters";
 import { portfolioItems, categories } from "@/data/mock-portfolio";
@@ -76,7 +75,6 @@ export default function PortfolioPage() {
         </section>
       </main>
       <CTASection />
-      <Footer />
     </div>
   );
 }
