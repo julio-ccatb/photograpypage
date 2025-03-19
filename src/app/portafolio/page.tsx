@@ -50,7 +50,7 @@ export default function PortfolioPage() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-black text-white">
       <Header />
-      <main className="w-full pt-20">
+      <main className="w-full">
         <PortfolioHeader />
 
         {/* Filtros en la parte superior */}
