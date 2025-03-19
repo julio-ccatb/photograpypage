@@ -102,7 +102,6 @@ export default function NotFound() {
                 <Image
                   src="/COG.svg?height=800&width=600"
                   alt="Cámara rota"
-                  color="white"
                   fill
                   className="object-contain"
                 />
