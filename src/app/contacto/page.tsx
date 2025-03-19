@@ -5,7 +5,7 @@ import { Footer } from "@/components/footer";
 import { ContactHeader } from "@/components/contact/contact-header";
 import { ContactMethods } from "@/components/contact/contact-methods";
 import { ContactTestimonials } from "@/components/contact/contact-testimonials";
-import { ContactCTA } from "@/components/contact/contact-cta";
+import { CTASection } from "@/components/cta-section";
 
 export default function ContactoPage() {
   return (
@@ -14,7 +14,7 @@ export default function ContactoPage() {
       <ContactHeader />
       <ContactMethods />
       <ContactTestimonials />
-      <ContactCTA />
+      <CTASection />
       <Footer />
     </div>
   );

@@ -9,9 +9,9 @@ import { StudioGallery } from "@/components/studios/studio-gallery";
 import { StudioFeaturesDetail } from "@/components/studios/studio-features-detail";
 import { StudioEquipment } from "@/components/studios/studio-equipment";
 import { StudioPricing } from "@/components/studios/studio-pricing";
-import { StudioCTA } from "@/components/studios/studio-cta";
 import { studios } from "@/data/studios-data";
 import type { Studio } from "@/data/studios-data";
+import { CTASection } from "@/components/cta-section";
 
 export default function StudioDetailPage() {
   const params = useParams();
@@ -57,7 +57,7 @@ export default function StudioDetailPage() {
       <StudioFeaturesDetail studio={studio} />
       <StudioEquipment studio={studio} />
       <StudioPricing studio={studio} />
-      <StudioCTA />
+      <CTASection />
       <Footer />
     </div>
   );

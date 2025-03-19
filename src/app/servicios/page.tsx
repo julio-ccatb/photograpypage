@@ -6,7 +6,7 @@ import { ServicesHero } from "@/components/services/services-hero";
 import { ServicesTabs } from "@/components/services/services-tabs";
 import { PricingPackages } from "@/components/services/pricing-packages";
 import { WorkSamples } from "@/components/services/work-samples";
-import { ServicesCTA } from "@/components/services/services-cta";
+import { CTASection } from "@/components/cta-section";
 
 export default function ServiciosPage() {
   return (
@@ -16,7 +16,7 @@ export default function ServiciosPage() {
       <ServicesTabs />
       <PricingPackages />
       <WorkSamples />
-      <ServicesCTA />
+      <CTASection />
       <Footer />
     </div>
   );

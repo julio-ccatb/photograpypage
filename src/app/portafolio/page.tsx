@@ -7,6 +7,7 @@ import { PortfolioGallery } from "@/components/portfolio/portfolio-gallery";
 import { PortfolioFilters } from "@/components/portfolio/portfolio-filters";
 import { portfolioItems, categories } from "@/data/mock-portfolio";
 import { PortfolioHeader } from "@/components/portfolio/portfolio-header";
+import { CTASection } from "@/components/cta-section";
 
 export default function PortfolioPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -74,6 +75,7 @@ export default function PortfolioPage() {
           </div>
         </section>
       </main>
+      <CTASection />
       <Footer />
     </div>
   );
