@@ -26,7 +26,7 @@ export function PortfolioFilters({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/80 backdrop-blur-md">
+    <div className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 backdrop-blur-md">
       {/* Header con contador y toggle */}
       <div className="flex items-center justify-between border-b border-zinc-800 p-4">
         <div className="flex items-center gap-2">

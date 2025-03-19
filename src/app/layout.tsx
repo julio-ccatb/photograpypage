@@ -4,6 +4,7 @@ import { type Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import { TRPCReactProvider } from "@/trpc/react";
+import { FloatingWhatsApp } from "@/components/contact/floating-whatsapp";
 
 export const metadata: Metadata = {
   title: "Dvine Studios - Fotografía Profesional",
@@ -19,7 +20,10 @@ export default function RootLayout({
   return (
     <html lang="es" className={inter.className}>
       <body>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+        <TRPCReactProvider>
+          {children}
+          <FloatingWhatsApp />
+        </TRPCReactProvider>
       </body>
     </html>
   );
