@@ -1,18 +1,18 @@
 "use client";
 
-import { useRef } from "react";
-import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
 import {
-  ChevronRight,
-  Instagram,
-  Facebook,
-  Twitter,
-  Camera,
-  ArrowDown,
-} from "lucide-react";
+  SiInstagram,
+  SiTiktok,
+  SiYoutube,
+} from "@icons-pack/react-simple-icons";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowDown, Camera, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import { useRef } from "react";
+
 import { Button } from "@/components/ui/button";
 import { SocialIcon } from "@/components/ui/social-icon";
+import { info } from "@/data/info";
 import Link from "next/link";
 
 export function HeroSection() {
@@ -122,7 +122,7 @@ export function HeroSection() {
 
           {/* Social Icons */}
           <motion.div
-            className="flex items-center justify-center space-x-4 sm:justify-start sm:space-x-6"
+            className="flex items-center justify-center sm:justify-start sm:space-x-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
@@ -130,15 +130,22 @@ export function HeroSection() {
             <span className="hidden text-xs text-gray-400 sm:inline sm:text-sm">
               Síguenos:
             </span>
-            <div className="flex space-x-3 sm:space-x-5">
+            <div className="flex items-center justify-center space-x-3 sm:space-x-5">
               <SocialIcon
-                icon={<Instagram className="h-3.5 w-3.5 sm:h-4 sm:w-4" />}
+                href={info.external_links.instagram}
+                target="_blank"
+                icon={<SiInstagram className="h-3.5 w-3.5 sm:h-4 sm:w-4" />}
+              />
+
+              <SocialIcon
+                target="_blank"
+                href={info.external_links.tiktok}
+                icon={<SiTiktok className="h-3.5 w-3.5 sm:h-4 sm:w-4" />}
               />
               <SocialIcon
-                icon={<Facebook className="h-3.5 w-3.5 sm:h-4 sm:w-4" />}
-              />
-              <SocialIcon
-                icon={<Twitter className="h-3.5 w-3.5 sm:h-4 sm:w-4" />}
+                target="_blank"
+                href={info.external_links.youtube}
+                icon={<SiYoutube className="h-3.5 w-3.5 sm:h-4 sm:w-4" />}
               />
             </div>
           </motion.div>
