@@ -33,7 +33,7 @@ export function ContactCard({ onMethodChange }: ContactCardProps) {
             className="rounded-full bg-amber-500 text-black hover:bg-amber-600"
             onClick={() => onMethodChange("message")}
           >
-            <MessageSquare className="mr-2 h-4 w-4" />
+            <MessageSquare className="" />
             Enviar Mensaje
           </Button>
 
@@ -42,7 +42,7 @@ export function ContactCard({ onMethodChange }: ContactCardProps) {
             className="rounded-full border-white/30 text-white hover:border-white/60 hover:bg-white/10"
             onClick={() => onMethodChange("call")}
           >
-            <Phone className="mr-2 h-4 w-4" />
+            <Phone className="" />
             Llamar Ahora
           </Button>
 

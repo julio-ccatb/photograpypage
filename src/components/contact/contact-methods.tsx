@@ -76,7 +76,11 @@ export function ContactMethods() {
               <ContactFAQSection />
 
               {/* Contact Card */}
-              <ContactCard onMethodChange={() => setActiveMethod} />
+              <ContactCard
+                onMethodChange={(method: string) =>
+                  setActiveMethod(method as ContactMethod)
+                }
+              />
 
               {/* Business Hours Card */}
               <BusinessHours />
