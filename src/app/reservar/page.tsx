@@ -1,13 +1,11 @@
 "use client";
 
-import { Header } from "@/components/header";
 import { ReservationProvider } from "@/contexts/reservation-context";
 import { ReservationForm } from "@/components/reservation/reservation-form";
 
 export default function ReservationPage() {
   return (
     <div className="min-h-screen bg-black text-white">
-      <Header />
       <main className="pb-20 pt-32">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">

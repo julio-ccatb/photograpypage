@@ -36,7 +36,6 @@ export default function StudioDetailPage() {
   if (!studio) {
     return (
       <div className="min-h-screen bg-black text-white">
-        <Header />
         <div className="container mx-auto px-4 py-32 text-center">
           <h1 className="mb-4 text-4xl font-bold">Estudio no encontrado</h1>
           <p className="mb-8 text-xl text-gray-300">

@@ -3,16 +3,13 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
+
 import { Button } from "@/components/ui/button";
 import { Camera, Home, Search, ArrowLeft } from "lucide-react";
 
 export default function NotFound() {
   return (
     <div className="flex min-h-screen flex-col bg-black text-white">
-      <Header />
-
       <main className="flex flex-grow items-center justify-center py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
@@ -161,8 +158,6 @@ export default function NotFound() {
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }

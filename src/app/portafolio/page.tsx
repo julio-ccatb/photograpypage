@@ -12,7 +12,6 @@ export default function PortfolioPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [filteredItems, setFilteredItems] = useState(portfolioItems);
   const [isLoading, setIsLoading] = useState(true);
-  const [showFilters, setShowFilters] = useState(true);
 
   useEffect(() => {
     // Simulamos una carga de datos

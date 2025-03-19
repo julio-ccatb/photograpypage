@@ -9,7 +9,6 @@ import { CTASection } from "@/components/cta-section";
 export default function ContactoPage() {
   return (
     <div className="min-h-screen bg-black text-white">
-      <Header />
       <ContactHeader />
       <ContactMethods />
       <ContactTestimonials />
