@@ -1,7 +1,6 @@
 "use client";
 
 import { CTASection } from "@/components/cta-section";
-import { Header } from "@/components/header";
 import { PricingPackages } from "@/components/services/pricing-packages";
 import { ServicesHero } from "@/components/services/services-hero";
 import { ServicesTabs } from "@/components/services/services-tabs";

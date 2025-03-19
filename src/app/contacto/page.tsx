@@ -1,6 +1,5 @@
 "use client";
 
-import { Header } from "@/components/header";
 import { ContactHeader } from "@/components/contact/contact-header";
 import { ContactMethods } from "@/components/contact/contact-methods";
 import { ContactTestimonials } from "@/components/contact/contact-testimonials";

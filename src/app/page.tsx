@@ -2,8 +2,6 @@
 
 import { AboutSection } from "@/components/about-section";
 import { CTASection } from "@/components/cta-section";
-import { Footer } from "@/components/footer";
-import { Header } from "@/components/header";
 import { HeroSection } from "@/components/hero-section";
 import { PortfolioSection } from "@/components/portfolio-section";
 import { ServicesSection } from "@/components/services-section";
