@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { X, Star, ChevronRight } from "lucide-react";
-import { Button } from "../ui/button";
 
 export function MembershipBanner() {
   const [isVisible, setIsVisible] = useState(true);

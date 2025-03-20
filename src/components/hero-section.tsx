@@ -6,7 +6,7 @@ import {
   SiYoutube,
 } from "@icons-pack/react-simple-icons";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowDown, Camera, ChevronRight } from "lucide-react";
+import { Camera, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useRef } from "react";
 
@@ -25,15 +25,6 @@ export function HeroSection() {
 
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-
-  // Función para desplazarse a la sección About
-  const scrollToAboutSection = () => {
-    // Buscar la sección About por su ID
-    const aboutSection = document.getElementById("about-section");
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <motion.div
@@ -153,21 +144,19 @@ export function HeroSection() {
       </div>
 
       {/* Botón para desplazarse hacia la sección About */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 flex justify-center pb-12 sm:pb-16">
-        <motion.div
-          className="absolute bottom-10 left-1/2 z-20 -translate-x-1/2 transform"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
-        >
-          <div className="flex h-14 w-8 justify-center rounded-full border-2 border-white/30">
-            <motion.div
-              className="mt-2 h-2 w-2 rounded-full bg-amber-500"
-              animate={{ y: [0, 16, 0] }}
-              transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
-            />
-          </div>
-        </motion.div>
-      </div>
+      <motion.div
+        className="absolute bottom-10 left-1/2 z-20 -translate-x-1/2 transform"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
+      >
+        <div className="flex h-14 w-8 justify-center rounded-full border-2 border-white/30">
+          <motion.div
+            className="mt-2 h-2 w-2 rounded-full bg-amber-500"
+            animate={{ y: [0, 16, 0] }}
+            transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
+          />
+        </div>
+      </motion.div>
     </motion.div>
   );
 }
