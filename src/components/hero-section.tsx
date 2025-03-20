@@ -154,34 +154,19 @@ export function HeroSection() {
 
       {/* Botón para desplazarse hacia la sección About */}
       <div className="absolute bottom-0 left-0 right-0 z-20 flex justify-center pb-12 sm:pb-16">
-        <motion.button
-          className="flex flex-col items-center justify-center text-white transition-colors duration-300 hover:text-amber-500"
-          onClick={scrollToAboutSection}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          aria-label="Ir a la sección Sobre Nosotros"
+        <motion.div
+          className="absolute bottom-10 left-1/2 z-20 -translate-x-1/2 transform"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
         >
-          <span className="mb-2 text-sm font-medium sm:mb-3 sm:text-base">
-            Explorar
-          </span>
-          <motion.div
-            animate={{
-              y: [0, 10, 0],
-              opacity: [0.7, 1, 0.7],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
-            className="rounded-full border border-white/10 bg-black/50 p-2.5 backdrop-blur-sm sm:p-3.5"
-          >
-            <ArrowDown className="h-5 w-5 sm:h-6 sm:w-6" />
-          </motion.div>
-        </motion.button>
+          <div className="flex h-14 w-8 justify-center rounded-full border-2 border-white/30">
+            <motion.div
+              className="mt-2 h-2 w-2 rounded-full bg-amber-500"
+              animate={{ y: [0, 16, 0] }}
+              transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
+            />
+          </div>
+        </motion.div>
       </div>
     </motion.div>
   );
