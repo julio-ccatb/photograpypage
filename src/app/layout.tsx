@@ -55,7 +55,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={inter.className}>
+    <html lang="es" className={`${inter.className} scroll-smooth`}>
       <body>
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>

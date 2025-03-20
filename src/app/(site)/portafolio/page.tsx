@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Header } from "@/components/header";
 import { PortfolioGallery } from "@/components/portfolio/portfolio-gallery";
 import { PortfolioFilters } from "@/components/portfolio/portfolio-filters";
 import { portfolioItems, categories } from "@/data/mock-portfolio";

@@ -25,7 +25,7 @@ export function FloatingWhatsApp({
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1, type: "spring" }}
-        className="hover flex items-center justify-center rounded-full bg-transparent p-4 text-amber-500 shadow-lg outline outline-1 transition-all duration-300 hover:bg-black hover:bg-opacity-50"
+        className="hover flex items-center justify-center rounded-full bg-black p-4 text-amber-500 shadow-lg outline outline-1 transition-all"
         onClick={handleClick}
         aria-label="Contactar por WhatsApp"
       >

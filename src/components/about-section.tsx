@@ -165,7 +165,7 @@ export function AboutSection() {
               </motion.div>
 
               {/* Elemento decorativo - Borde */}
-              <div className="absolute left-10 top-10 -z-10 h-full w-3/4 rounded-lg border border-amber-500/30" />
+              <div className="-z-100 absolute left-10 top-2 h-full w-3/4 rounded-lg border border-amber-500/30 lg:top-10" />
             </div>
           </motion.div>
         </div>

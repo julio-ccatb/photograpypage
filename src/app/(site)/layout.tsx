@@ -1,13 +1,11 @@
 import "@/styles/globals.css";
 
 import { type Metadata } from "next";
-import { Inter } from "next/font/google";
 
-import { FloatingWhatsApp } from "@/components/contact/floating-whatsapp";
+import { FloatingWhatsApp } from "@/components/floating-whatsapp";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { info } from "@/data/info";
-import { TRPCReactProvider } from "@/trpc/react";
 
 export const metadata: Metadata = {
   title:
