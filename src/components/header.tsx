@@ -33,9 +33,10 @@ export function Header() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="hidden items-center space-x-8 md:flex"
+            className="hidden items-center space-x-8 lg:flex"
           >
             <NavLink href="/estudios">Estudios</NavLink>
+            <NavLink href="/membresia">Membresia</NavLink>
             <NavLink href="/servicios">Servicios</NavLink>
             <NavLink href="/portafolio">Portafolio</NavLink>
             <NavLink href="/nosotros">Nosotros</NavLink>
@@ -43,7 +44,7 @@ export function Header() {
           </motion.nav>
 
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden">
+          <div className="flex lg:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 text-white"
@@ -57,7 +58,7 @@ export function Header() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="hidden md:block"
+            className="hidden lg:block"
           >
             <Button
               variant="outline"
@@ -77,7 +78,7 @@ export function Header() {
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
-          className="bg-zinc-900/95 backdrop-blur-md md:hidden"
+          className="bg-zinc-900/95 backdrop-blur-md lg:hidden"
         >
           <div className="container mx-auto flex flex-col space-y-4 px-4 py-6">
             <Link
@@ -86,6 +87,13 @@ export function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               Estudios
+            </Link>
+            <Link
+              href="/membresia"
+              className="rounded-lg px-4 py-3 text-gray-200 hover:bg-zinc-800/50"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Membresia
             </Link>
             <Link
               href="/servicios"
