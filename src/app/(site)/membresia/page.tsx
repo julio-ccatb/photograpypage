@@ -1,14 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
+import { LoginModal } from "@/components/membership/login-modal";
+import { MembershipBenefits } from "@/components/membership/membership-benefits";
+import { MembershipCTA } from "@/components/membership/membership-cta";
+import { MembershipFAQ } from "@/components/membership/membership-faq";
 import { MembershipHero } from "@/components/membership/membership-hero";
 import { MembershipPlans } from "@/components/membership/membership-plans";
-import { MembershipBenefits } from "@/components/membership/membership-benefits";
-import { MembershipFAQ } from "@/components/membership/membership-faq";
-import { MembershipCTA } from "@/components/membership/membership-cta";
-import { LoginModal } from "@/components/membership/login-modal";
+import { useState } from "react";
 
 export default function MembershipPage() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);

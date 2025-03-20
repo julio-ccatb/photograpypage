@@ -1,10 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { X, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
+import { Loader2, X } from "lucide-react";
+import { useState } from "react";
 import { SiGoogle } from "@icons-pack/react-simple-icons";
 
 interface LoginModalProps {
