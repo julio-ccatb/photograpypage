@@ -6,12 +6,14 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { MembershipBanner } from "./banners/membership-banner";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 bg-black/50 backdrop-blur-md">
+      <MembershipBanner />
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <motion.div
