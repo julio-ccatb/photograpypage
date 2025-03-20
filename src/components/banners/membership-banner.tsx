@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { X, Star, ChevronRight } from "lucide-react";
+import { Button } from "../ui/button";
 
 export function MembershipBanner() {
   const [isVisible, setIsVisible] = useState(true);
@@ -25,7 +26,7 @@ export function MembershipBanner() {
     <motion.div
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="w-full bg-gradient-to-r from-amber-600 to-amber-500 py-2 text-black"
+      className="flex w-full bg-gradient-to-r from-amber-600 to-amber-500 py-2 text-black"
     >
       <div className="container mx-auto flex items-center justify-center px-4">
         <Star className="mr-2 hidden h-4 w-4 sm:block" fill="currentColor" />
@@ -39,14 +40,9 @@ export function MembershipBanner() {
         >
           Saber más <ChevronRight className="ml-1 h-4 w-4" />
         </Link>
-        <button
-          onClick={handleDismiss}
-          className="absolute right-2 top-1/2 -translate-y-1/2 transform rounded-full p-1 hover:bg-black/10"
-          aria-label="Cerrar"
-        >
-          <X className="h-4 w-4" />
-        </button>
       </div>
+
+      <X className="mr-4 cursor-pointer" onClick={handleDismiss} />
     </motion.div>
   ) : null;
 }
