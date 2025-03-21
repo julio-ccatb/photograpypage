@@ -36,7 +36,7 @@ export function Header() {
             className="hidden items-center space-x-8 lg:flex"
           >
             <NavLink href="/estudios">Estudios</NavLink>
-            <NavLink href="/membresia">Membresia</NavLink>
+            <NavLink href="/membresia">Membresias</NavLink>
             <NavLink href="/servicios">Servicios</NavLink>
             <NavLink href="/portafolio">Portafolio</NavLink>
             <NavLink href="/nosotros">Nosotros</NavLink>
@@ -93,7 +93,7 @@ export function Header() {
               className="rounded-lg px-4 py-3 text-gray-200 hover:bg-zinc-800/50"
               onClick={() => setIsMenuOpen(false)}
             >
-              Membresia
+              Membresias
             </Link>
             <Link
               href="/servicios"
