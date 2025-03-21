@@ -159,7 +159,7 @@ export function Footer() {
                 <li className="flex items-center">
                   <Mail className="mr-2 h-5 w-5 flex-shrink-0 text-amber-500" />
                   <Link href={`mailto:${info.contact_email}`}>
-                    info.contact_email
+                    {info.contact_email}
                   </Link>
                 </li>
               </ul>
