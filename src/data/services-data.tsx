@@ -22,7 +22,7 @@ export const services: ServiceType[] = [
       "Edición profesional de cada imagen",
       "Entrega digital e impresa disponible",
     ],
-    price: "Desde 150€",
+    price: "Desde 150 DOP",
     popular: false,
   },
   {
@@ -40,7 +40,7 @@ export const services: ServiceType[] = [
       "Fotografía corporativa y de personal",
       "Licencias comerciales incluidas",
     ],
-    price: "Desde 300€",
+    price: "Desde 300 DOP",
     popular: true,
   },
   {
@@ -58,7 +58,7 @@ export const services: ServiceType[] = [
       "Entrega rápida de previsualizaciones",
       "Álbum digital personalizado",
     ],
-    price: "Desde 250€",
+    price: "Desde 250 DOP",
     popular: false,
   },
   {
@@ -76,7 +76,7 @@ export const services: ServiceType[] = [
       "Edición profesional y corrección de color",
       "Formatos optimizados para cada plataforma",
     ],
-    price: "Desde 400€",
+    price: "Desde 400 DOP",
     popular: false,
   },
 ];
@@ -85,7 +85,7 @@ export const services: ServiceType[] = [
 export const packages: PackageType[] = [
   {
     title: "Básico",
-    price: "150€",
+    price: "150 DOP",
     features: [
       "1 hora de sesión",
       "10 fotos editadas",
@@ -95,7 +95,7 @@ export const packages: PackageType[] = [
   },
   {
     title: "Premium",
-    price: "299€",
+    price: "299 DOP",
     features: [
       "3 horas de sesión",
       "30 fotos editadas",
@@ -107,7 +107,7 @@ export const packages: PackageType[] = [
   },
   {
     title: "Empresarial",
-    price: "499€",
+    price: "499 DOP",
     features: [
       "Jornada completa",
       "50+ fotos editadas",

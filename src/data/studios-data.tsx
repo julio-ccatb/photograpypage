@@ -171,7 +171,7 @@ export const studios: Studio[] = [
     pricing: [
       {
         title: "Media Jornada",
-        price: "250€",
+        price: "250 DOP",
         duration: "4 horas",
         features: [
           "Acceso completo al estudio",
@@ -182,7 +182,7 @@ export const studios: Studio[] = [
       },
       {
         title: "Jornada Completa",
-        price: "450€",
+        price: "450 DOP",
         duration: "8 horas",
         features: [
           "Acceso completo al estudio",
@@ -195,7 +195,7 @@ export const studios: Studio[] = [
       },
       {
         title: "Pack Semanal",
-        price: "1800€",
+        price: "1800 DOP",
         duration: "5 días",
         features: [
           "Acceso completo al estudio",
@@ -272,7 +272,7 @@ export const studios: Studio[] = [
     pricing: [
       {
         title: "Media Jornada",
-        price: "300€",
+        price: "300 DOP",
         duration: "4 horas",
         features: [
           "Acceso completo al estudio chroma",
@@ -283,7 +283,7 @@ export const studios: Studio[] = [
       },
       {
         title: "Jornada Completa",
-        price: "550€",
+        price: "550 DOP",
         duration: "8 horas",
         features: [
           "Acceso completo al estudio chroma",
@@ -296,7 +296,7 @@ export const studios: Studio[] = [
       },
       {
         title: "Pack Producción",
-        price: "2200€",
+        price: "2200 DOP",
         duration: "5 días",
         features: [
           "Acceso completo al estudio chroma",
@@ -375,7 +375,7 @@ export const studios: Studio[] = [
     pricing: [
       {
         title: "Sesión Básica",
-        price: "150€",
+        price: "150 DOP",
         duration: "3 horas",
         features: [
           "Acceso al estudio de producto",
@@ -386,7 +386,7 @@ export const studios: Studio[] = [
       },
       {
         title: "Sesión E-commerce",
-        price: "280€",
+        price: "280 DOP",
         duration: "6 horas",
         features: [
           "Acceso completo al estudio",
@@ -399,7 +399,7 @@ export const studios: Studio[] = [
       },
       {
         title: "Pack Catálogo",
-        price: "950€",
+        price: "950 DOP",
         duration: "3 días",
         features: [
           "Acceso completo al estudio",
