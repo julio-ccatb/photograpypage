@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { FooterLink } from "@/components/ui/footer-link";
 import { Input } from "@/components/ui/input";
 import { SocialIcon } from "@/components/ui/social-icon";
-import { info } from "@/data/info";
+import { info, ROUTES } from "@/data/info";
 import {
   SiGmail,
   SiInstagram,
@@ -100,7 +100,7 @@ export function Footer() {
                 <FooterLink href="/portafolio">Portafolio</FooterLink>
                 <FooterLink href="/nosotros">Nosotros</FooterLink>
                 <FooterLink href="/contacto">Contacto</FooterLink>
-                <FooterLink href="/reservar">Reservar</FooterLink>
+                <FooterLink href={ROUTES.RESERVAS}>Reservar</FooterLink>
               </ul>
             </motion.div>
           </div>
@@ -260,7 +260,7 @@ export function Footer() {
                 className="group rounded-full bg-amber-500 text-black hover:bg-amber-600"
                 asChild
               >
-                <Link href="/reservar">
+                <Link href={ROUTES.RESERVAS}>
                   Reservar Ahora{" "}
                   <ArrowRight className="transition-transform group-hover:translate-x-1" />
                 </Link>

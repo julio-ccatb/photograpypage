@@ -1,18 +1,19 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import Link from "next/link"
-import { Check } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
-import type { PackageType } from "@/types/services"
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { Check } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import type { PackageType } from "@/types/services";
+import { ROUTES } from "@/data/info";
 
 interface ServicePackageProps {
-  packageData: PackageType
+  packageData: PackageType;
 }
 
 export function ServicePackage({ packageData }: ServicePackageProps) {
-  const { title, price, features, popular } = packageData
+  const { title, price, features, popular } = packageData;
 
   return (
     <motion.div
@@ -21,26 +22,26 @@ export function ServicePackage({ packageData }: ServicePackageProps) {
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
       className={cn(
-        "relative bg-zinc-800/50 border rounded-xl overflow-hidden transition-all duration-300 h-full",
+        "relative h-full overflow-hidden rounded-xl border bg-zinc-800/50 transition-all duration-300",
         popular ? "border-amber-500" : "border-zinc-700 hover:border-zinc-500",
       )}
     >
       {popular && (
-        <div className="absolute top-0 right-0 left-0 bg-amber-500 text-black text-xs font-bold py-1 text-center">
+        <div className="absolute left-0 right-0 top-0 bg-amber-500 py-1 text-center text-xs font-bold text-black">
           RECOMENDADO
         </div>
       )}
 
       <div className={cn("p-6 sm:p-8", popular ? "pt-8" : "")}>
-        <h3 className="text-xl font-bold mb-2">{title}</h3>
+        <h3 className="mb-2 text-xl font-bold">{title}</h3>
         <div className="mb-4">
           <span className="text-3xl font-bold text-amber-500">{price}</span>
         </div>
 
-        <ul className="space-y-3 mb-6">
+        <ul className="mb-6 space-y-3">
           {features.map((feature, index) => (
             <li key={index} className="flex items-start">
-              <Check className="h-5 w-5 text-amber-500 mr-2 flex-shrink-0" />
+              <Check className="mr-2 h-5 w-5 flex-shrink-0 text-amber-500" />
               <span className="text-sm text-gray-300">{feature}</span>
             </li>
           ))}
@@ -49,14 +50,15 @@ export function ServicePackage({ packageData }: ServicePackageProps) {
         <Button
           className={cn(
             "w-full rounded-full",
-            popular ? "bg-amber-500 hover:bg-amber-600 text-black" : "bg-zinc-700 hover:bg-zinc-600 text-white",
+            popular
+              ? "bg-amber-500 text-black hover:bg-amber-600"
+              : "bg-zinc-700 text-white hover:bg-zinc-600",
           )}
           asChild
         >
-          <Link href="/reservar">Seleccionar</Link>
+          <Link href={ROUTES.RESERVAS}>Seleccionar</Link>
         </Button>
       </div>
     </motion.div>
-  )
+  );
 }
-

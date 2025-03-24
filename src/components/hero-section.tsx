@@ -12,7 +12,7 @@ import { useRef } from "react";
 
 import { Button } from "@/components/ui/button";
 import { SocialIcon } from "@/components/ui/social-icon";
-import { info } from "@/data/info";
+import { info, ROUTES } from "@/data/info";
 import Link from "next/link";
 
 export function HeroSection() {
@@ -96,7 +96,7 @@ export function HeroSection() {
               className="group w-full rounded-full bg-amber-500 px-6 py-3 text-sm text-black shadow-lg hover:bg-amber-600/90 sm:w-auto sm:px-8 sm:py-6 sm:text-lg"
               asChild
             >
-              <Link href="/reservar">
+              <Link href={ROUTES.RESERVAS}>
                 Reserva Tu Sesión
                 <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>

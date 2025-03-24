@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { MembershipBanner } from "./banners/membership-banner";
+import { ROUTES } from "@/data/info";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -65,7 +66,7 @@ export function Header() {
               className="rounded-full border-amber-500 text-amber-500 transition-all duration-300 hover:bg-amber-500/20 hover:text-amber-400"
               asChild
             >
-              <Link href="/reservar">Reservar Ahora</Link>
+              <Link href={ROUTES.RESERVAS}>Reservar Ahora</Link>
             </Button>
           </motion.div>
         </div>
@@ -130,7 +131,7 @@ export function Header() {
                 asChild
                 onClick={() => setIsMenuOpen(false)}
               >
-                <Link href="/reservar">Reservar Ahora</Link>
+                <Link href={ROUTES.RESERVAS}>Reservar Ahora</Link>
               </Button>
             </div>
           </div>

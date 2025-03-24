@@ -26,12 +26,13 @@ export const info = {
   },
 };
 
-export enum Routes {
+export enum ROUTES {
   HOME = "/",
   ABOUT = "/nosotros",
   SERVICES = "/servicios",
   PORTFOLIO = "/portafolio",
   CONTACT = "/contacto",
   ESTUDIOS = "/estudios",
+  RESERVAS = "https://dvinestudios.com/reserva/",
   NOT_FOUND = "/404",
 }

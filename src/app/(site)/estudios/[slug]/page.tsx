@@ -48,7 +48,6 @@ export default function StudioDetailPage() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <Header />
       <StudioDetailHeader studio={studio} />
       <StudioGallery studio={studio} />
       <StudioFeaturesDetail studio={studio} />
